@@ -1,0 +1,2 @@
+# ventas
+trabajo computación 
