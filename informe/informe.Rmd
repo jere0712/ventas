@@ -84,21 +84,78 @@ Justificación del trabajo de investigación\
 
 ```{r}
 #llamamos a la base de datos 
-df <- read_csv("~/GitHub/ventas/Dataset/retail_store_sales.csv")
+datos <- read_csv("~/GitHub/ventas/Dataset/retail_store_sales.csv")
 ```
 
 
 ```{r}
 #hacemos cosas estadisticas con la base de datos sucia (para tener un estructura inicial)
-str(df)
-head(df)
-summary(df)
+str(datos)
+head(datos)
+summary(datos)
 
+```
+```{r}
+# LIMPIEZA DE DATOS
+#renombramos las columnas a nombre mas especificos para hacer mas facil el llamado 
+
+df <- datos %>% rename (
+    transaction_id = "Transaction ID",
+    customer_id    = "Customer ID",
+    category       = "Category",
+    item           = "Item",
+    price_unit     = "Price Per Unit",
+    quantity       = "Quantity",
+    total_spent    = "Total Spent",
+    payment_method = "Payment Method",
+    location       = "Location",
+    transaction_date = "Transaction Date",
+    discount       = "Discount Applied"
+    )
+
+```
+
+
+```{r}
+# ahora damos el tipo de dato a las columnas 
+   df <- df %>% mutate( 
+    discount = as.logical(discount),                # TRUE / FALSE
+    location = as.factor(location),
+    payment_method = as.factor(payment_method),
+    category = as.factor(category),
+    transaction_date = ymd(transaction_date),       # convierte a fecha
+    
+    # Asegurar que price_unit, quantity y total_spent sean numéricos
+    price_unit = as.numeric(price_unit),
+    quantity = as.numeric(quantity),
+    total_spent = as.numeric(total_spent)
+    )
+```
+
+
+```{r}
+#revisamos los datos faltantes
+colSums(is.na(df))
+#eliminamos filas vacias si existen
+df <- df %>% filter(!if_all(everything(), is.na))
+
+#revisamos los valores faltantes 
+cat("=== Valores faltantes por columna ===\n")
+print(colSums(is.na(df)))
+glimpse(df)
+summary(df)
 ```
 ```{r}
 ```
 
 
+```{r}
+```
+
+
+```{r}
+```
+ 
 
 \section{Cobertura}
 \subsection{Horizontal}
