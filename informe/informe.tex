@@ -21,10 +21,11 @@
 \usepackage{hyperref}
 \usepackage{cleveref}
 
-% Definición de colores
+% DefiniciC3n de colores
 \definecolor{miblue}{RGB}{68, 114, 196}
 
-% --- CAMBIO CRÍTICO 1: Usar \input para macros en el preámbulo ---
+% --- CAMBIO CRC
+TICO 1: Usar \input para macros en el preC!mbulo ---
 % \include da problemas antes del begin document. \input es seguro.
 \input{Latex/Macros/MacroFile1}
 
@@ -36,24 +37,24 @@
 \providecommand{\lugar}[1]{\def\ellugar{#1}}
 \providecommand{\degreedate}[1]{\def\lafecha{#1}}
 
-% --- Configuración para bloques de código de R (Pandoc) ---
+% --- ConfiguraciC3n para bloques de cC3digo de R (Pandoc) ---
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         DATOS (Conectados a RMarkdown)                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Título del Trabajo Final}
-\author{Primer participante \\ Segundo participante \\ Tercer
-participante}
+\author{Jeremías Mogollón \\ Hilary Andrade \\ Ronald Camacho \\ Angel
+Mogollón}
 
-% Lógica para Facultad: Si la defines en el YAML la usa, si no, usa la default
+% LC3gica para Facultad: Si la defines en el YAML la usa, si no, usa la default
 
 \facultad{Facultad de Ciencias Económicas y Sociales \\ Escuela de
 Estadistica y Ciencias Actuariales}
   \escudofacultad{Latex/Classes/Escudos/faces}
 
 \degree{Computación I}
-\director{Jesus Ochoa \\ Oliver Triveño}
-\degreedate{Febrero 2026} 
+\director{jhonderlis}
+\degreedate{Noviembre 2026} 
 \lugar{Caracas}
 
 \portadatrue 
@@ -62,7 +63,7 @@ Estadistica y Ciencias Actuariales}
 \keywords{}
 \subject{}
 
-% --- CORRECCIÓN PARA PANDOC NUEVO (Imágenes) ---
+% --- CORRECCICN PARA PANDOC NUEVO (ImC!genes) ---
 \makeatletter
 \providecommand{\pandocbounded}[1]{#1}
 \makeatother
@@ -76,14 +77,15 @@ Estadistica y Ciencias Actuariales}
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                  PRÓLOGO                          %
+%                  PRCLOGO                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frontmatter
 
-% Puedes agregar dedicatorias desde el YAML si quieres, o dejarlas fijas aquí
+% Puedes agregar dedicatorias desde el YAML si quieres, o dejarlas fijas aquC-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                   ÍNDICES                         %
+%                   C
+NDICES                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -94,22 +96,23 @@ Estadistica y Ciencias Actuariales}
 
 \cleardoublepage
 
-  \cleardoublepage       % Empieza en página derecha (estándar en tesis)
-  \chapter*{Resumen}     % Crea el título "Resumen" sin numeración (Capítulo *)
-  \addcontentsline{toc}{chapter}{Resumen} % (Opcional) Lo añade al índice
+  \cleardoublepage       % Empieza en pC!gina derecha (estC!ndar en tesis)
+  \chapter*{Resumen}     % Crea el tC-tulo "Resumen" sin numeraciC3n (CapC-tulo *)
+  \addcontentsline{toc}{chapter}{Resumen} % (Opcional) Lo aC1ade al C-ndice
   
   Resumen del trabajo de
-investigación\ldots{}             % Aquí se pega el texto que escribiste en el YAML
+investigación\ldots{}             % AquC- se pega el texto que escribiste en el YAML
   
   \cleardoublepage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                   CONTENIDO (El Corazón)          %
+%                   CONTENIDO (El CorazC3n)          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter
 \def\baselinestretch{1.5}
 
-% --- CAMBIO CRÍTICO 2: Aquí RMarkdown inyecta todo tu texto ---
+% --- CAMBIO CRC
+TICO 2: AquC- RMarkdown inyecta todo tu texto ---
 \chapter*{Introducción}
 
 Introducción del trabajo de investigación
@@ -276,7 +279,7 @@ Descripción\\
 \bibliography{bibliografia.bib} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                   APÉNDICES                       %
+%                   APC	NDICES                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
