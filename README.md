@@ -1,2 +1,80 @@
-# ventas
-trabajo computación 
+# El análisis de datos en el comercio minorista
+abstract: |El presente trabajo analiza el comportamiento de las transacciones comerciales y el rendimiento de ventas en el sector retail mediante el procesamiento estadístico en R y RStudio. A partir de datos transaccionales de 2023–2024, se examinan variables como precios, cantidades, montos, categorías, métodos de pago y canales de venta (Online e In-store). Metodológicamente, se implementa un flujo reproducible en RMarkdown para la limpieza, análisis descriptivo y visualización gráfica. Los hallazgos permiten identificar patrones de consumo y la efectividad de las políticas de descuentos, optimizando la toma de decisiones comerciales. 
+Palabras clave, Análisis de datos, RMarkdown, Comercio minorista, Estadísticas descriptivas, Reproducibilidad.
+
+
+\chapter*{Introducción}
+
+El análisis de datos en el comercio minorista (retail) es fundamental para comprender la dinámica del mercado y el comportamiento de los consumidores. Ante el volumen masivo de registros transaccionales presenciales y digitales, las empresas requieren metodologías estadísticas precisas para optimizar sus operaciones. Este informe se estructura para dar respuesta a interrogantes clave sobre las ventas minoristas. Comienza con el Planteamiento del Problema (justificación, objetivos, cobertura y definición de variables). Posteriormente, aborda la limpieza de datos, el análisis estadístico descriptivo para resolver las preguntas de investigación y la generación de visualizaciones integradas. Todo el desarrollo se ejecuta bajo un enfoque de reproducibilidad mediante un documento dinámico en RMarkdown.
+
+
+\chapter{Planteamiento del Problema}
+
+En el contexto económico y empresarial actual, la toma de decisiones informada exige la transición desde esquemas intuitivos hacia modelos cuantitativos basados en el análisis masivo de transacciones. En el sector del comercio minorista (retail), la convergencia de canales físicos (In-store) y digitales (Online) genera flujos continuos de datos que reflejan el comportamiento de compra en tiempo real. No obstante, las organizaciones enfrentan a menudo el reto de la subutilización de esta información. La carencia de un diagnóstico estadístico sobre la variabilidad de precios, cantidades y montos totales limita la comprensión profunda de la estructura de consumo. Asimismo, la aplicación de políticas de descuento y estrategias comerciales suele efectuarse sin una medición cuantitativa de su impacto real sobre la rentabilidad, haciendo indispensable un abordaje analítico estructurado y reproducible mediante herramientas computacionales.
+
+Debido a esto, se plantea las siguientes preguntas de investigación:\
+
+
+\textbf{1.}	¿De qué manera influyen las categorías de productos y los canales de distribución (Online vs. In-store) en el volumen total de ventas de la tienda?\
+
+\textbf{2.}	¿Existe una relación significativa entre la aplicación de descuentos y los métodos de pago preferidos por los consumidores en el monto total gastado por transacción?\
+
+\textbf{3.}	¿Cómo se distribuyen los precios unitarios y las cantidades adquiridas a lo largo del periodo de referencia, permitiendo identificar patrones estacionales o anomalías en el comportamiento de compra?\
+
+\textbf{4.} ¿En qué categorías se aplican más descuentos?
+
+\section{Justificación}
+
+La presente investigación se justifica en la necesidad de dotar a la gestión comercial minorista de herramientas estadísticas objetivas y reproducibles. A nivel práctico, el análisis detallado de las transacciones correspondientes al periodo 2023-2024 permitirá optimizar las estrategias de precios, la segmentación de clientes y la asignación de recursos operativos entre los canales digitales y físicos. Desde una perspectiva metodológica, el estudio establece un flujo de trabajo reproducible basado en programación estadística, garantizando la trazabilidad, la precisión y la transparencia en el tratamiento de los datos. Esto aporta valor estratégico a la organización y consolida un marco de aplicación directa para la analítica empresarial en el ámbito académico.
+
+\section{Objetivos}
+ 
+\subsection{Objetivo General}
+\begin{itemize}
+  \item{Analizar integralmente el rendimiento comercial minorista a través del procesamiento estadístico del histórico transaccional 2023-2024, mediante el uso de herramientas computacionales en R, para optimizar la toma de decisiones estratégicas basadas en el comportamiento del consumidor.}
+\end{itemize}
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+  \item{1. Caracterizar la distribución univariada y multivariada de las variables cuantitativas (precios unitarios, cantidades y montos totales) y cualitativas (categorías, ubicación y métodos de pago).}
+  \item{2. Evaluar el impacto de la aplicación de descuentos y los canales de compra (Online frente a In-store) sobre el gasto total de los clientes.}
+  \item{3. Desarrollar un flujo de trabajo reproducible e integrado en RMarkdown con salida en HTML que garantice la trazabilidad y transparencia de todo el análisis estadístico.}
+  \item{4. Identificar las categorías de productos y los periodos temporales donde se concentra con mayor frecuencia la aplicación de políticas de descuentos.}
+\end{itemize}
+
+\section{Cobertura}
+\subsection{Horizontal}
+
+El estudio abarca el análisis económico y cuantitativo del rendimiento comercial minorista (retail), centrándose en el estudio de las transacciones de venta, la tipología de los artículos comercializados, las preferencias de pago de los clientes y la segmentación geográfica u operativa de las compras.
+\
+
+\begin{table}[ht]
+\centering
+\caption{Variables consideradas en el estudio}
+\resizebox{12cm}{!}{
+\begin{tabular}{lll}
+\hline
+\textbf{Variable} & \textbf{Tipo de Variable} & \textbf{Descripción} \\ \hline
+Precio Unitario & Cuantitativa continua & Precio de venta por unidad del producto. \\
+Cantidad & Cuantitativa discreta & Número de unidades adquiridas por transacción. \\
+Monto Total & Cuantitativa continua & Importe total pagado en la transacción. \\
+Categoría & Cualitativa nominal & Clasificación del tipo de producto vendido. \\
+Canal de Venta & Cualitativa nominal & Medio de compra (Online o In-store). \\
+Método de Pago & Cualitativa nominal & Forma de pago utilizada por el cliente. \\
+Descuento & Cualitativa nominal & Aplicación o no de política de descuento. \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\subsection{Vertical}
+
+La cobertura operativa y espacial comprende los registros de ventas recopilados tanto a través de la plataforma de comercio electrónico (Online) como en las sucursales físicas (In-store), abarcando la totalidad de las observaciones válidas contenidas en el repositorio de datos de la empresa.
+
+
+\section{Periodo de Referencia}
+
+El análisis empírico se fundamenta en el procesamiento del histórico transaccional correspondiente al periodo comprendido entre los años 2023 y 2024, permitiendo capturar la estacionalidad anual y las variaciones temporales en el comportamiento de compra de los clientes.
+
+\section{Variables}
+
+Las variables objeto de estudio se han estructurado rigurosamente en función de su naturaleza matemática y estadística en R, clasificándose en variables cuantitativas (continuas y discretas para el análisis de montos y volúmenes) y cualitativas (factores para la segmentación por categorías, canales de pago y ubicación geográfica) 
