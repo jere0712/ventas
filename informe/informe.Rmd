@@ -243,7 +243,10 @@ print(colSums(is.na(df)))
 ```
 
 
+
 ```{r}
+#graficos 
+```
 
 ```
  
