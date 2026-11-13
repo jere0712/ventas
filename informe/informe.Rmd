@@ -292,8 +292,7 @@ Describir la variable en estudio en el trabajo de investigación
 
 Aquí se presentan de manera sencilla las bases del tema y del comportamiento del consumidor que respaldan el análisis de cómo las promociones influyen en las ventas de las tiendas.Su importancia está en explicar cómo piensan los compradores y cómo reaccionan las ventas cuando se aplican descuentos, modifican el ticket de compra y condicionan el desempeño comercial a través de los distintos canales y modalidades de pago.
 
-\subsection{2.1.1 Estrategias de Descuento Comercial y Comportamiento del Consumidor
-}
+\subsection{2.1.1 Estrategias de Descuento Comercial y Comportamiento del Consumidor}
 
 Las promociones de ventas y las políticas de descuento de precios constituyen estímulos comerciales directos destinados a acelerar la decisión de compra, atraer nuevos compradores y elevar la rotación de inventarios. En términos transaccionales, el descuento representa una disminución porcentual o absoluta respecto al precio regular de lista (Price Per Unit), modificando la restricción presupuestaria del cliente, esta herramienta altera la restricción presupuestaria del cliente mediante dos fuerzas:
 - **Efecto sustitución:** Cuando un producto baja de precio, se vuelve más atractivo que otras opciones similares o de la competencia que mantienen su precio normal 
