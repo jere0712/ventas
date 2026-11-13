@@ -285,24 +285,35 @@ Describir la fuente y el Periodo de Referencia utilizado en el trabajo de invest
 
 Describir la variable en estudio en el trabajo de investigación
 
-\chapter{Marco Teórico}
+\chapter{2 Marco Teórico}
 
 
-\section{Bases Teóricas}
+\section{2.1 Bases Teóricas}
 
-Resumen de las bases teoricas explicadas en el capitulo y su importancia\
+Aquí se presentan de manera sencilla las bases del tema y del comportamiento del consumidor que respaldan el análisis de cómo las promociones influyen en las ventas de las tiendas.Su importancia está en explicar cómo piensan los compradores y cómo reaccionan las ventas cuando se aplican descuentos, modifican el ticket de compra y condicionan el desempeño comercial a través de los distintos canales y modalidades de pago.
 
-\subsection{Definición 1}
+\subsection{2.1.1 Estrategias de Descuento Comercial y Comportamiento del Consumidor
+}
 
-Descripción de la definición 1\
+Las promociones de ventas y las políticas de descuento de precios constituyen estímulos comerciales directos destinados a acelerar la decisión de compra, atraer nuevos compradores y elevar la rotación de inventarios. En términos transaccionales, el descuento representa una disminución porcentual o absoluta respecto al precio regular de lista (Price Per Unit), modificando la restricción presupuestaria del cliente, esta herramienta altera la restricción presupuestaria del cliente mediante dos fuerzas:
+- **Efecto sustitución:** Cuando un producto baja de precio, se vuelve más atractivo que otras opciones similares o de la competencia que mantienen su precio normal 
+- **Efecto ingreso:** Aumenta la capacidad de compra de las personas, permitiéndoles llevar más productos gastando lo mismo.
 
-\subsection{Definición 2}
 
-Descripción de la definición 2\
+\subsection{2.1.2 Comportamiento de Compra y Elasticidad de la Cesta Minorista}
 
-\subsection{Definición n}
+En la tienda , el impacto de una promoción va más allá de un solo artículo influye directamente en la cantidad y variedad de productos que el cliente decide llevar Los compradores suelen dividir su dinero en 'presupuestos mentales' según el tipo de compra que van a hacer . Al notar que ahorran dinero con un descuento, los compradores suelen reaccionar de dos formas clave: 
+- **Efecto acaparamiento o compra acelerada:** El cliente adelanta compras futuras o incrementa el volumen físico adquirido para maximizar el beneficio del precio rebajado antes de que expire la oferta.
+- **Comportamiento compensatorio de gasto:** El dinero que el comprador se ahorra en un producto en promoción suele destinarse a sumar más artículos al carrito o a elegir versiones más costosas, impactando directamente en el ticket promedio de compra. 
 
-Descripción de la definición n\
+El impacto de estas promociones depende del tipo de producto, los artículos de consumo rápido o perecederos suelen comprarse por impulso con cualquier oferta puntual, mientras que los productos duraderos o que requieren mayor planificación necesitan descuentos mucho más altos para convencer al cliente. 
+
+\subsection{2.1.3 Experiencia de compra multicanal y problemas en el momento del pago }
+
+El resultado de las promociones en los comercios actuales depende tanto de la experiencia en el punto de venta como de la rapidez al pagar. 
+- **Diferencia entre canal físico (In-store) y digital (Online):** Al comprar en persona, ver los productos y tenerlos disponibles al instante motiva a los clientes a llevarse cosas extra que no planeaban, además de aprovechar el descuento. Por otro lado, comprar por internet hace muy fácil comparar precios al instante y sin esfuerzo. Esto vuelve a los clientes más exigentes y enfocados solo en buscar ofertas, lo que puede reducir la compra de productos adicionales si la página no les muestra buenas sugerencias. 
+- **El impacto de la facilidad de pago en la decisión de compra:** El medio elegido para pagar influye en nuestra percepción del gasto. Los pagos electrónicos y las tarjetas de crédito retrasan la sensación de estar perdiendo dinero en efectivo, lo que reduce la resistencia del cliente al momento de comprar. Al no sentir el golpe inmediato en el bolsillo y aprovechar un buen descuento, es mucho más probable que el cliente agregue más productos a su compra que si tuviera que pagar en efectivo al momento 
+
 
 
 \chapter{Marco Metódico}
