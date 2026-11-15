@@ -1,5 +1,5 @@
 ---
-title: "El análisis de datos en el comercio"
+title: "Análisis de Datos en el Comercio"
 author:
 - Jeremías Mogollón
 - Hilary Andrade
@@ -61,7 +61,7 @@ library(scales)
 El análisis de datos en el comercio minorista (retail) es fundamental para comprender la dinámica del mercado y el comportamiento de los consumidores. Ante el volumen masivo de registros transaccionales presenciales y digitales, las empresas requieren metodologías estadísticas precisas para optimizar sus operaciones. Este informe se estructura para dar respuesta a interrogantes clave sobre las ventas minoristas. Comienza con el Planteamiento del Problema (justificación, objetivos, cobertura y definición de variables). Posteriormente, aborda la limpieza de datos, el análisis estadístico descriptivo para resolver las preguntas de investigación y la generación de visualizaciones integradas. Todo el desarrollo se ejecuta bajo un enfoque de reproducibilidad mediante un documento dinámico en RMarkdown.
 
 \chapter{Planteamiento del Problema}
-El análisis de datos en el comercio minorista (retail) es fundamental para comprender la dinámica del mercado y el comportamiento de los consumidores. Ante el volumen masivo de registros transaccionales presenciales y digitales, las empresas requieren metodologías estadísticas precisas para optimizar sus operaciones. Este informe se estructura para dar respuesta a interrogantes clave sobre las ventas minoristas. Comienza con el Planteamiento del Problema (justificación, objetivos, cobertura y definición de variables). Posteriormente, aborda la limpieza de datos, el análisis estadístico descriptivo para resolver las preguntas de investigación y la generación de visualizaciones integradas. Todo el desarrollo se ejecuta bajo un enfoque de reproducibilidad mediante un documento dinámico en RMarkdown.\
+El sector del comercio al por menor (retail) opera en un entorno altamente dinámico y competitivo, donde la gestión eficiente de las transacciones comerciales, la comprensión de los patrones de consumo y la optimización de los canales de venta (físico y digital) resultan fundamentales para la sostenibilidad financiera de los establecimientos. La irrupción de nuevas modalidades de pago, como las billeteras digitales y tarjetas, combinada con políticas de descuentos dinámicos y la diversificación de categorías de productos, genera un volumen masivo de datos transaccionales que requieren un tratamiento analítico riguroso.\
 
 Argumento final. Debido a esto, se plantea las siguientes preguntas de investigación:\
 
@@ -82,7 +82,7 @@ La presente investigación se justifica en la necesidad de dotar a la gestión c
  
 \subsection{Objetivo General}
 \begin{itemize}
-  \item{Analizar integralmente el rendimiento comercial minorista a través del procesamiento estadístico del histórico transaccional 2023-2024, mediante el uso de herramientas computacionales en R, para optimizar la toma de decisiones estratégicas basadas en el comportamiento del consumidor.}
+  \item{Analizar integralmente el rendimiento comercial minorista a través del procesamiento estadístico del histórico transaccional 2022-2025, mediante el uso de herramientas computacionales en R, para optimizar la toma de decisiones estratégicas basadas en el comportamiento del consumidor.}
 \end{itemize}
 
 \subsection{Objetivos Específicos}
@@ -270,7 +270,7 @@ La cobertura operativa y espacial comprende los registros de ventas recopilados 
 
 \section{Periodo de Referencia}
 
-El análisis empírico se fundamenta en el procesamiento del histórico transaccional correspondiente al periodo comprendido entre los años 2022 y 2025, permitiendo capturar la estacionalidad anual y las variaciones temporales en el comportamiento de compra de los clientes.
+El análisis empírico se fundamenta en el procesamiento del histórico transaccional correspondiente al periodo comprendido entre los años 2022-2025, permitiendo capturar la estacionalidad anual y las variaciones temporales en el comportamiento de compra de los clientes.
 
 
 \section{Variables}
@@ -287,22 +287,27 @@ Aquí se presentan de manera sencilla las bases del tema y del comportamiento de
 \subsection{Estrategias de Descuento Comercial y Comportamiento del Consumidor}
 
 Las promociones de ventas y las políticas de descuento de precios constituyen estímulos comerciales directos destinados a acelerar la decisión de compra, atraer nuevos compradores y elevar la rotación de inventarios. En términos transaccionales, el descuento representa una disminución porcentual o absoluta respecto al precio regular de lista (Price Per Unit), modificando la restricción presupuestaria del cliente, esta herramienta altera la restricción presupuestaria del cliente mediante dos fuerzas:
-- **Efecto sustitución:** Cuando un producto baja de precio, se vuelve más atractivo que otras opciones similares o de la competencia que mantienen su precio normal 
-- **Efecto ingreso:** Aumenta la capacidad de compra de las personas, permitiéndoles llevar más productos gastando lo mismo.\
+
+ **-Efecto sustitución:** Cuando un producto baja de precio, se vuelve más atractivo que otras opciones similares o de la competencia que mantienen su precio normal.
+ **-Efecto ingreso:** Aumenta la capacidad de compra de las personas, permitiéndoles llevar más productos gastando lo mismo.\
 
 \subsection{Comportamiento de Compra y Elasticidad de la Cesta Minorista}
 
-En la tienda , el impacto de una promoción va más allá de un solo artículo influye directamente en la cantidad y variedad de productos que el cliente decide llevar Los compradores suelen dividir su dinero en 'presupuestos mentales' según el tipo de compra que van a hacer . Al notar que ahorran dinero con un descuento, los compradores suelen reaccionar de dos formas clave: 
-- **Efecto acaparamiento o compra acelerada:** El cliente adelanta compras futuras o incrementa el volumen físico adquirido para maximizar el beneficio del precio rebajado antes de que expire la oferta.
-- **Comportamiento compensatorio de gasto:** El dinero que el comprador se ahorra en un producto en promoción suele destinarse a sumar más artículos al carrito o a elegir versiones más costosas, impactando directamente en el ticket promedio de compra.
+En la tienda , el impacto de una promoción va más allá de un solo artículo influye directamente en la cantidad y variedad de productos que el cliente decide llevar Los compradores suelen dividir su dinero en 'presupuestos mentales' según el tipo de compra que van a hacer . Al notar que ahorran dinero con un descuento, los compradores suelen reaccionar de dos formas clave:
+
+ **-Efecto acaparamiento o compra acelerada:** El cliente adelanta compras futuras o incrementa el volumen físico adquirido para maximizar el beneficio del precio rebajado antes de que expire la oferta.
+
+ **-Comportamiento compensatorio de gasto:** El dinero que el comprador se ahorra en un producto en promoción suele destinarse a sumar más artículos al carrito o a elegir versiones más costosas, impactando directamente en el ticket promedio de compra.
 
 El impacto de estas promociones depende del tipo de producto, los artículos de consumo rápido o perecederos suelen comprarse por impulso con cualquier oferta puntual, mientras que los productos duraderos o que requieren mayor planificación necesitan descuentos mucho más altos para convencer al cliente.\
 
 \subsection{Experiencia de compra multicanal y problemas en el momento del pago}
 
-El resultado de las promociones en los comercios actuales depende tanto de la experiencia en el punto de venta como de la rapidez al pagar. 
-- **Diferencia entre canal físico (In-store) y digital (Online):** Al comprar en persona, ver los productos y tenerlos disponibles al instante motiva a los clientes a llevarse cosas extra que no planeaban, además de aprovechar el descuento. Por otro lado, comprar por internet hace muy fácil comparar precios al instante y sin esfuerzo. Esto vuelve a los clientes más exigentes y enfocados solo en buscar ofertas, lo que puede reducir la compra de productos adicionales si la página no les muestra buenas sugerencias. 
-- **El impacto de la facilidad de pago en la decisión de compra:** El medio elegido para pagar influye en nuestra percepción del gasto. Los pagos electrónicos y las tarjetas de crédito retrasan la sensación de estar perdiendo dinero en efectivo, lo que reduce la resistencia del cliente al momento de comprar. Al no sentir el golpe inmediato en el bolsillo y aprovechar un buen descuento, es mucho más probable que el cliente agregue más productos a su compra que si tuviera que pagar en efectivo al momento\
+El resultado de las promociones en los comercios actuales depende tanto de la experiencia en el punto de venta como de la rapidez al pagar.
+
+ **-Diferencia entre canal físico (In-store) y digital (Online):** Al comprar en persona, ver los productos y tenerlos disponibles al instante motiva a los clientes a llevarse cosas extra que no planeaban, además de aprovechar el descuento. Por otro lado, comprar por internet hace muy fácil comparar precios al instante y sin esfuerzo. Esto vuelve a los clientes más exigentes y enfocados solo en buscar ofertas, lo que puede reducir la compra de productos adicionales si la página no les muestra buenas sugerencias.
+
+ **-El impacto de la facilidad de pago en la decisión de compra:** El medio elegido para pagar influye en nuestra percepción del gasto. Los pagos electrónicos y las tarjetas de crédito retrasan la sensación de estar perdiendo dinero en efectivo, lo que reduce la resistencia del cliente al momento de comprar. Al no sentir el golpe inmediato en el bolsillo y aprovechar un buen descuento, es mucho más probable que el cliente agregue más productos a su compra que si tuviera que pagar en efectivo al momento\
 
 
 \chapter{Marco Metódico}
@@ -340,15 +345,32 @@ El procesamiento, limpieza, análisis y generación de visualizaciones se realiz
 \subsection{Procedimiento}
 
 1.Importación y revisión de la base de datos.
+
 2.Limpieza y tratamiento de valores faltantes (imputación por mediana según categoría y recodificación de valores nulos en variables categóricas).
+
 3.Análisis descriptivo univariado de la variable Discount Applied.
+
 4.Análisis comparativo de Total Spent y Quantity según la aplicación de descuento.
+
 5.Análisis cruzado de los descuentos según categoría de producto, canal de venta (Online / In-store) y método de pago.
+
 6.Generación de tablas y gráficos interpretativos.
+
 7.Elaboración de conclusiones a partir de los hallazgos descriptivos.\
 
 \chapter{Análisis de Resultados}
 
+{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.
+
+Esta sección presenta el análisis estadístico descriptivo orientado a evaluar el impacto de la aplicación de descuentos (discount) sobre el comportamiento de compra de los clientes, analizando variables clave como el monto total gastado (total_spent) y la cantidad de unidades adquiridas (quantity).
+
+Para contextualizar los hallazgos, primeramente se examina la proporción general de transacciones que cuentan con algún tipo de rebaja. Posteriormente, se contrasta el rendimiento económico y de volumen entre las compras que incluyeron descuento frente a aquellas que no lo hicieron, profundizando en cómo este factor interactúa según las categorías de productos y los canales de distribución (Online e In-store)}
+
+\section{Estudio de tablas y graficas}
+
+\subsection{ Distribución de la variable Discount Applied}
+
+De las 12.575 transacciones analizadas, se observó una distribución muy equilibrada en la variable de descuento. Aproximadamente un tercio de las transacciones tuvieron descuento aplicado (TRUE: 33.6%), otro tercio no lo tuvo (FALSE: 33.1%) y el tercio restante corresponde a valores desconocidos (33.4%). Esta distribución similar indica que la política de descuentos no se aplica de manera dominante en ninguna de las dos direcciones.\
 
 ```{r}
 # Tabla de frecuencias y porcentajes de discount
@@ -378,8 +400,6 @@ tabla_discount %>%
     position = "center"
   )
 ```
-
-
 
 ```{r}
 # Gráfico de discount
@@ -412,6 +432,16 @@ ggplot(df, aes(x = discount, fill = discount)) +
   )
 ```
 
+
+
+
+
+
+
+\subsection{Comparación de Total Spent y Quantity según descuento}
+
+Al comparar el monto total gastado (Total Spent) y la cantidad de productos comprados (Quantity) según la aplicación de descuento, se evidencia que las diferencias son mínimas. La media de Total Spent fue de 130.49 en las transacciones con descuento y de 129.95 en las que no lo tuvieron. De igual forma, la cantidad promedio comprada se mantuvo muy similar (5.53 vs 5.58). Los diagramas de caja confirman esta similitud, mostrando distribuciones casi idénticas entre ambos grupos, con presencia de valores atípicos en los tres casos.\
+
 ```{r}
 # 1. Tabla de medidas resumen
 resumen_descuento <- df %>%
@@ -443,7 +473,7 @@ resumen_descuento %>%
     bootstrap_options = c("striped", "hover", "condensed"),
     full_width = FALSE,
     position = "center",
-    font_size = 12
+    font_size = 6
   )
 
 ```
@@ -453,7 +483,7 @@ resumen_descuento %>%
 ggplot(df, aes(x = discount, y = total_spent, fill = discount)) +
   geom_boxplot(alpha = 0.85, outlier.size = 0.8) +
   scale_fill_manual(
-    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828", "Desconocido" = "#757575")
+    values = c("TRUE" = "#87CEEB", "FALSE" = "#C62828", "Desconocido" = "#757575")
   ) +
   labs(
     title = "Distribución del monto total gastado según descuento",
@@ -468,12 +498,15 @@ ggplot(df, aes(x = discount, y = total_spent, fill = discount)) +
   )
 ```
 
+
+
+
 ```{r}
 # 3. Boxplot de Quantity según descuento
 ggplot(df, aes(x = discount, y = quantity, fill = discount)) +
   geom_boxplot(alpha = 0.85, outlier.size = 0.8) +
   scale_fill_manual(
-    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828", "Desconocido" = "#757575")
+    values = c("TRUE" = "#87CEEB", "FALSE" = "#C62828", "Desconocido" = "#757575")
   ) +
   labs(
     title = "Distribución de la cantidad comprada según descuento",
@@ -488,6 +521,9 @@ ggplot(df, aes(x = discount, y = quantity, fill = discount)) +
   )
 ```
 
+\subsection{Aplicación de descuentos según categoría de producto}
+
+Al analizar el grafico de descuentos por categoría, se identificó que la categoría Furniture es donde se aplican con mayor frecuencia los descuentos, mientras que la categoría Food presenta la menor proporción de transacciones con descuento. El resto de las categorías muestran un comportamiento intermedio y relativamente homogéneo.\
 
 ```{r}
 # DESCUENTOS SEGÚN CATEGORÍA DE PRODUCTO
@@ -536,7 +572,7 @@ df_desc %>%
     y = "Porcentaje (%)",
     fill = "Descuento"
   ) +
-  theme_minimal(base_size = 12) +
+  theme_minimal(base_size = 14) +
   theme(
     plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
     plot.subtitle = element_text(hjust = 0.5, color = "gray40"),
@@ -544,6 +580,10 @@ df_desc %>%
     legend.position = "top"
   )
 ```
+
+\subsection{Aplicación de descuentos según canal de venta}
+
+Respecto al canal de venta, la diferencia entre Online e In-store es pequeña. Ambos canales presentan proporciones de descuento muy cercanas, lo que sugiere que la política de descuentos se aplica de manera similar independientemente del canal utilizado por el cliente.\
 
 ```{r}
 # Filtramos solo TRUE y FALSE
@@ -584,7 +624,7 @@ df_desc %>%
     size = 4
   ) +
   scale_fill_manual(
-    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828")
+    values = c("TRUE" = "#FFD700", "FALSE" = "#C62828")
   ) +
   labs(
     title = "Porcentaje de transacciones con y sin descuento segun canal",
@@ -600,6 +640,10 @@ df_desc %>%
     legend.position = "top"
   )
 ```
+
+\subsection{Aplicación de descuentos según método de pago}
+
+En cuanto a los métodos de pago, se observó que las transacciones realizadas en Cash son las que presentan mayor proporción de descuentos aplicados, mientras que Digital Wallet muestra la menor proporción. Este comportamiento podría estar relacionado con estrategias promocionales específicas según el medio de pago.\
 
 ```{r}
 
@@ -660,6 +704,9 @@ df_desc %>%
   )
 ```
 
+\subsection{Ticket promedio según método de pago y descuento}
+
+Al analizar el ticket promedio (media de Total Spent) cruzando método de pago y descuento, se observa que en la mayoría de los métodos el monto promedio es ligeramente superior cuando existe descuento. La diferencia más notable se presenta en el método Cash.\
 
 ```{r}
 df_desc <- df %>%
@@ -719,35 +766,33 @@ ggplot(tabla_ticket_pago, aes(x = payment_method, y = Media_Total_Spent, fill = 
 
 
 
-{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.}
 
-\section{Presentación de resultados 1}
-
-Descripción\
-
-\section{Presentación de resultados 2}
-
-Descripción\
-
-\section{Presentación de resultados n}
-
-Descripción\
 
 \chapter{Conclusiones y Recomendaciones}
 
-\textbf{1.-} Conclusion 1 del trabajo de investigación.\
+
+\textbf{1.-} El procesamiento y análisis estadístico de un histórico de 12.575 transacciones del sector retail (2022-2025), implementado a través de un flujo de trabajo reproducible en R, RStudio y RMarkdown, demostró ser una herramienta robusta y transparente para el tratamiento de datos y la gestión comercial. La limpieza y el tratamiento de valores faltantes mediante imputación por mediana permitieron mantener la integridad de la base de datos sin sesgar las distribuciones univariadas y multivariadas.\
 
 \textbf{Recomendación} 
-Recomendación 1 del trabajo de investigación.\
+ Mantener y ampliar el enfoque de programación reproducible (RMarkdown) en futuros análisis comerciales de la organización para garantizar la trazabilidad, rapidez y precisión en la actualización periódica de los reportes gerenciales.\
 
-\textbf{2.-} Conclusion 2 del trabajo de investigación.\
+\textbf{2.-} La distribución global de la variable de descuentos muestra una participación sumamente equilibrada y fragmentada en tercios casi idénticos entre transacciones con descuento (TRUE: 33.6%), sin descuento (FALSE: 33.1%) y valores no especificados (NA: 33.4%). Asimismo, las medidas de tendencia central y dispersión del monto total gastado (Total Spent, con medias cercanas a 130) y de las cantidades adquiridas (Quantity, con medias en torno a 5.5 unidades) evidencian que la presencia o ausencia de un descuento por sí sola no genera un cambio drástico en el volumen promedio por transacción a nivel general.\
 
 \textbf{Recomendación} 
-Recomendación 2 del trabajo de investigación.\
+Evaluar y rediseñar las políticas de incentivos comerciales actuales, dado que una distribución tan equitativa entre compras con y sin descuento sugiere que las promociones vigentes no están logrando el efecto diferenciador esperado sobre el ticket promedio global.\
 
-\textbf{n.-} Conclusion n del trabajo de investigación.\
+\textbf{3.-} Al analizar el comportamiento de los descuentos por categorías de productos, se identificó que rubros como Furniture (52.4%), Butchers (51.4%), Beverages (51.3%) y Patisserie (51.1%) concentran las mayores proporciones de transacciones con rebajas aplicadas, mientras que la categoría Food registra la menor incidencia con un 48.2%. Esto refleja un esfuerzo promocional diferenciado según la naturaleza de los artículos comercializados.\
 
-\textbf{Recomendación} Recomendación n del trabajo de investigación.\
+\textbf{Recomendación}Focalizar las estrategias de rebajas en categorías de alta rotación o aquellas con menor sensibilidad al precio (como Food), implementando promociones cruzadas o descuentos por volumen para estimular un mayor incremento en el ticket de compra en dichos departamentos.\
+
+\textbf{4.-} La evaluación comparativa entre canales de venta revela una simetría total en la asignación de políticas promocionales: el canal Online presenta un 50.6% de transacciones con descuento frente a un 50.4% en el canal In-store (excluyendo valores perdidos). Esto demuestra que la empresa mantiene una estrategia comercial omnicanal homogénea sin sesgos aparentes hacia la digitalización o la presencialidad en cuanto a rebajas se refiere.\
+
+\textbf{Recomendación} Desarrollar estrategias promocionales específicas para el entorno digital que aprovechen la facilidad de comparación de precios en línea, tales como ofertas flash o cupones exclusivos para el canal Online, con el fin de potenciar la captación de clientes digitales más exigentes.\
+
+\textbf{5.-} El análisis cruzado entre los métodos de pago y la aplicación de descuentos evidencia comportamientos heterogéneos en el ticket promedio (Total Spent). Mientras que los pagos en efectivo (Cash, que pasa de 131.24 a 134.06) y mediante billeteras digitales (Digital Wallet, que aumenta de 125.90 a 129.68) muestran un incremento en el monto promedio gastado cuando se aplica un descuento, las transacciones con tarjeta de crédito (Credit Card) experimentan un comportamiento inverso, disminuyendo su media de 132.84 a 127.56.\
+
+\textbf{Recomendación} Optimizar las alianzas con pasarelas de pago digitales y canales de efectivo mediante incentivos combinados (como cashback o descuentos adicionales), y revisar las condiciones asociadas al uso de tarjetas de crédito para entender por qué el descuento reduce marginalmente el ticket en este método de pago.\
+
 
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
