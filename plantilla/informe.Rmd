@@ -1,0 +1,760 @@
+---
+title: "El análisis de datos en el comercio"
+author:
+- Jeremías Mogollón
+- Hilary Andrade
+- Ronald Camacho
+- Angel Mogollón
+date: "Noviembre 2026"
+output:
+  pdf_document:
+    template: template.tex
+    keep_tex: true
+    toc: true
+    number_sections: true
+    citation_package: natbib
+  html_document:
+    toc: true
+    df_print: paged
+director: jhonderlis
+lugar: Caracas
+facultad:
+- Facultad de Ciencias Económicas y Sociales
+- Escuela de Estadistica y Ciencias Actuariales
+escudo: Latex/Classes/Escudos/faces
+bibliography: bibliografia.bib
+degree: Computación I
+abstract: "El presente trabajo analiza el comportamiento de las transacciones comerciales\ny
+  el rendimiento de ventas en el sector retail mediante el procesamiento estadístico\nen
+  R y RStudio. A partir de datos transaccionales de 2023–2024, se examinan variables\ncomo
+  precios, cantidades, montos, categorías, métodos de pago y canales de venta\n(Online
+  e In-store). Metodológicamente, se implementa un flujo reproducible en RMarkdown\npara
+  la limpieza, análisis descriptivo y visualización gráfica. Los hallazgos permiten\nidentificar
+  patrones de consumo y la efectividad de las políticas de descuentos,\noptimizando
+  la toma de decisiones comerciales. Palabras clave, Análisis de datos,\nRMarkdown,
+  Comercio minorista, Estadísticas descriptivas, Reproducibilidad....\n"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+# Configuración global de chunks
+knitr::opts_chunk$set(
+  echo = FALSE,        # Mostrar código
+  warning = FALSE,    # Ocultar advertencias
+  message = FALSE,    # Ocultar mensajes de carga
+  fig.align = "center",
+  out.width = "90%",
+  fig.pos = "H",
+  out.extra = ""
+)
+
+# Cargar librerías necesarias
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(scales)
+```
+
+\chapter*{Introducción}
+
+El análisis de datos en el comercio minorista (retail) es fundamental para comprender la dinámica del mercado y el comportamiento de los consumidores. Ante el volumen masivo de registros transaccionales presenciales y digitales, las empresas requieren metodologías estadísticas precisas para optimizar sus operaciones. Este informe se estructura para dar respuesta a interrogantes clave sobre las ventas minoristas. Comienza con el Planteamiento del Problema (justificación, objetivos, cobertura y definición de variables). Posteriormente, aborda la limpieza de datos, el análisis estadístico descriptivo para resolver las preguntas de investigación y la generación de visualizaciones integradas. Todo el desarrollo se ejecuta bajo un enfoque de reproducibilidad mediante un documento dinámico en RMarkdown.
+
+\chapter{Planteamiento del Problema}
+El análisis de datos en el comercio minorista (retail) es fundamental para comprender la dinámica del mercado y el comportamiento de los consumidores. Ante el volumen masivo de registros transaccionales presenciales y digitales, las empresas requieren metodologías estadísticas precisas para optimizar sus operaciones. Este informe se estructura para dar respuesta a interrogantes clave sobre las ventas minoristas. Comienza con el Planteamiento del Problema (justificación, objetivos, cobertura y definición de variables). Posteriormente, aborda la limpieza de datos, el análisis estadístico descriptivo para resolver las preguntas de investigación y la generación de visualizaciones integradas. Todo el desarrollo se ejecuta bajo un enfoque de reproducibilidad mediante un documento dinámico en RMarkdown.\
+
+Argumento final. Debido a esto, se plantea las siguientes preguntas de investigación:\
+
+
+\textbf{1.}	¿De qué manera influyen las categorías de productos y los canales de distribución (Online vs. In-store) en el volumen total de ventas de la tienda?\
+
+\textbf{2.}	¿Existe una relación significativa entre la aplicación de descuentos y los métodos de pago preferidos por los consumidores en el monto total gastado por transacción?\
+
+\textbf{3.}	¿Cómo se distribuyen los precios unitarios y las cantidades adquiridas a lo largo del periodo de referencia, permitiendo identificar patrones estacionales o anomalías en el comportamiento de compra?\
+
+\textbf{4.} ¿En qué categorías se aplican más descuentos?\
+
+\section{Justificación}
+
+La presente investigación se justifica en la necesidad de dotar a la gestión comercial minorista de herramientas estadísticas objetivas y reproducibles. A nivel práctico, el análisis detallado de las transacciones correspondientes al periodo 2022-2025 permitirá optimizar las estrategias de precios, la segmentación de clientes y la asignación de recursos operativos entre los canales digitales y físicos. Desde una perspectiva metodológica, el estudio establece un flujo de trabajo reproducible basado en programación estadística, garantizando la trazabilidad, la precisión y la transparencia en el tratamiento de los datos. Esto aporta valor estratégico a la organización y consolida un marco de aplicación directa para la analítica empresarial en el ámbito académico.\
+
+\section{Objetivos}
+ 
+\subsection{Objetivo General}
+\begin{itemize}
+  \item{Analizar integralmente el rendimiento comercial minorista a través del procesamiento estadístico del histórico transaccional 2023-2024, mediante el uso de herramientas computacionales en R, para optimizar la toma de decisiones estratégicas basadas en el comportamiento del consumidor.}
+\end{itemize}
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+  \item{1. Caracterizar la distribución univariada y multivariada de las variables cuantitativas (precios unitarios, cantidades y montos totales) y cualitativas (categorías, ubicación y métodos de pago).}
+  \item{2. Evaluar el impacto de la aplicación de descuentos y los canales de compra (Online frente a In-store) sobre el gasto total de los clientes.}
+  \item{3. Desarrollar un flujo de trabajo reproducible e integrado en RMarkdown con salida en HTML que garantice la trazabilidad y transparencia de todo el análisis estadístico.}
+  \item{4. Identificar las categorías de productos y los periodos temporales donde se concentra con mayor frecuencia la aplicación de políticas de descuentos.}
+\end{itemize}
+
+```{r}
+#llamamos a la base de datos 
+datos <- read_csv("~/GitHub/ventas/Dataset/retail_store_sales.csv")
+```
+
+```{r eval=FALSE}
+#hacemos cosas estadisticas con la base de datos sucia (para tener un estructura inicial)
+str(datos)
+head(datos)
+summary(datos)
+
+```
+
+```{r}
+# LIMPIEZA DE DATOS
+#renombramos las columnas a nombre mas especificos para hacer mas facil el llamado 
+
+df <- datos %>% rename (
+    transaction_id = "Transaction ID",
+    customer_id    = "Customer ID",
+    category       = "Category",
+    item           = "Item",
+    price_unit     = "Price Per Unit",
+    quantity       = "Quantity",
+    total_spent    = "Total Spent",
+    payment_method = "Payment Method",
+    location       = "Location",
+    transaction_date = "Transaction Date",
+    discount       = "Discount Applied"
+    )
+```
+
+```{r eval=FALSE}
+# ahora damos el tipo de dato a las columnas 
+   df <- df %>% mutate( 
+    discount = as.logical(discount),                # TRUE / FALSE
+    location = as.factor(location),
+    payment_method = as.factor(payment_method),
+    category = as.factor(category),
+    transaction_date = ymd(transaction_date),       # convierte a fecha
+    
+    # Asegurar que price_unit, quantity y total_spent sean numéricos
+    price_unit = as.numeric(price_unit),
+    quantity = as.numeric(quantity),
+    total_spent = as.numeric(total_spent)
+    )
+```
+
+```{r eval=FALSE}
+#revisamos los datos faltantes
+colSums(is.na(df))
+
+#revisamos los valores faltantes 
+cat("=== Valores faltantes por columna ===\n")
+print(colSums(is.na(df)))
+glimpse(df)
+summary(df)
+```
+
+```{r eval=FALSE}
+# como hay muchos datos nulos vamos a imputar primero vemos el recuentro de los nulos 
+cat("=== NA antes de imputar ===\n")
+print(colSums(is.na(df)))
+```
+
+```{r eval=FALSE}
+df <- df %>%
+  group_by(category) %>%                          # imputamos dentro de cada categoría
+  mutate(
+    # Imputar price_unit con la mediana de su categoría
+    price_unit = if_else(is.na(price_unit),
+                         median(price_unit, na.rm = TRUE),
+                         price_unit),
+    
+    # Imputar quantity con la mediana de su categoría
+    quantity = if_else(is.na(quantity),
+                       median(quantity, na.rm = TRUE),
+                       quantity)
+  ) %>%
+  ungroup() %>%
+  
+  # Recalcular total_spent cuando esté faltante
+  
+  mutate(
+    total_spent = if_else(is.na(total_spent),
+                          price_unit * quantity,
+                          total_spent)
+  )
+```
+
+```{r eval=FALSE}
+# vamos a Tratar los NA de discount
+# Convertirlo en factor con 3 niveles (TRUE, FALSE, "Desconocido")
+df <- df %>%
+  mutate(
+    discount = as.character(discount),
+    discount = if_else(is.na(discount), "Desconocido", discount),
+    discount = factor(discount, levels = c("TRUE", "FALSE", "Desconocido"))
+  )
+```
+
+```{r eval=FALSE}
+# verificamos que no queden NA importantes
+cat("\n=== NA después de imputar ===\n")
+print(colSums(is.na(df)))
+```
+
+```{r eval=FALSE}
+#resumen rapido 
+cat("\n=== Distribución de discount después de imputar ===\n")
+print(table(df$discount, useNA = "ifany"))
+
+summary(df[, c("price_unit", "quantity", "total_spent")])
+```
+
+```{r eval=FALSE}
+# nos quedo datos faltantes en la variable item
+
+
+# Ver cuántos NA tiene item
+sum(is.na(df$item))
+
+# Convertir NA en "Desconocido"
+df <- df %>%
+  mutate(
+    item = as.character(item),                          # aseguramos que sea texto
+    item = if_else(is.na(item), "Desconocido", item),   # reemplazamos NA
+    item = as.factor(item)                              # lo volvemos factor
+  )
+# Verificar que ya no hay NA
+cat("NA en item después de limpiar:", sum(is.na(df$item)), "\n")
+```
+```{r eval=FALSE}
+# Ver las categorías más frecuentes (incluyendo Desconocido)
+df %>%
+  count(item, sort = TRUE) %>%
+  head(10)
+```
+
+
+```{r eval=FALSE}
+#verificas por ulitma vez di hay datos nulos 
+cat("\n=== NA después de imputar ===\n")
+print(colSums(is.na(df)))
+```
+\section{Cobertura}
+
+\subsection{Horizontal}
+
+El estudio abarca el análisis económico y cuantitativo del rendimiento comercial minorista (retail), centrándose en el estudio de las transacciones de venta, la tipología de los artículos comercializados, las preferencias de pago de los clientes y la segmentación geográfica u operativa de las compras.\
+
+\begin{table}[ht]
+\centering
+\caption{Variables consideradas} 
+\resizebox{10cm}{!} {
+\begin{tabular}{ccc}
+  \hline
+\textbf{Variable} & \textbf{Tipo de Variable} & \textbf{Descripción} \\\hline
+Precio Unitario & Cuantitativa continua & Precio de venta por unidad del producto. \\
+Cantidad & Cuantitativa discreta & Número de unidades adquiridas por transacción. \\
+Monto Total & Cuantitativa continua & Importe total pagado en la transacción. \\
+Categoría & Cualitativa nominal & Clasificación del tipo de producto vendido. \\
+Canal de Venta & Cualitativa nominal & Medio de compra (Online o In-store). \\
+Método de Pago & Cualitativa nominal & Forma de pago utilizada por el cliente. \\
+Descuento & Cualitativa nominal & Aplicación o no de política de descuento. \\ 
+\hline
+\end{tabular}
+}
+\end{table}
+
+\subsection{Vertical}
+
+La cobertura operativa y espacial comprende los registros de ventas recopilados tanto a través de la plataforma de comercio electrónico (Online) como en las sucursales físicas (In-store), abarcando la totalidad de las observaciones válidas contenidas en el repositorio de datos de la empresa.
+
+
+\section{Periodo de Referencia}
+
+El análisis empírico se fundamenta en el procesamiento del histórico transaccional correspondiente al periodo comprendido entre los años 2022 y 2025, permitiendo capturar la estacionalidad anual y las variaciones temporales en el comportamiento de compra de los clientes.
+
+
+\section{Variables}
+
+Las variables objeto de estudio se han estructurado rigurosamente en función de su naturaleza matemática y estadística en R, clasificándose en variables cuantitativas (continuas y discretas para el análisis de montos y volúmenes) y cualitativas (factores para la segmentación por categorías, canales de pago y ubicación geográfica)
+
+\chapter{Marco Teórico}
+
+
+\section{Bases Teóricas}
+
+Aquí se presentan de manera sencilla las bases del tema y del comportamiento del consumidor que respaldan el análisis de cómo las promociones influyen en las ventas de las tiendas.Su importancia está en explicar cómo piensan los compradores y cómo reaccionan las ventas cuando se aplican descuentos, modifican el ticket de compra y condicionan el desempeño comercial a través de los distintos canales y modalidades de pago.\
+
+\subsection{Estrategias de Descuento Comercial y Comportamiento del Consumidor}
+
+Las promociones de ventas y las políticas de descuento de precios constituyen estímulos comerciales directos destinados a acelerar la decisión de compra, atraer nuevos compradores y elevar la rotación de inventarios. En términos transaccionales, el descuento representa una disminución porcentual o absoluta respecto al precio regular de lista (Price Per Unit), modificando la restricción presupuestaria del cliente, esta herramienta altera la restricción presupuestaria del cliente mediante dos fuerzas:
+- **Efecto sustitución:** Cuando un producto baja de precio, se vuelve más atractivo que otras opciones similares o de la competencia que mantienen su precio normal 
+- **Efecto ingreso:** Aumenta la capacidad de compra de las personas, permitiéndoles llevar más productos gastando lo mismo.\
+
+\subsection{Comportamiento de Compra y Elasticidad de la Cesta Minorista}
+
+En la tienda , el impacto de una promoción va más allá de un solo artículo influye directamente en la cantidad y variedad de productos que el cliente decide llevar Los compradores suelen dividir su dinero en 'presupuestos mentales' según el tipo de compra que van a hacer . Al notar que ahorran dinero con un descuento, los compradores suelen reaccionar de dos formas clave: 
+- **Efecto acaparamiento o compra acelerada:** El cliente adelanta compras futuras o incrementa el volumen físico adquirido para maximizar el beneficio del precio rebajado antes de que expire la oferta.
+- **Comportamiento compensatorio de gasto:** El dinero que el comprador se ahorra en un producto en promoción suele destinarse a sumar más artículos al carrito o a elegir versiones más costosas, impactando directamente en el ticket promedio de compra.
+
+El impacto de estas promociones depende del tipo de producto, los artículos de consumo rápido o perecederos suelen comprarse por impulso con cualquier oferta puntual, mientras que los productos duraderos o que requieren mayor planificación necesitan descuentos mucho más altos para convencer al cliente.\
+
+\subsection{Experiencia de compra multicanal y problemas en el momento del pago}
+
+El resultado de las promociones en los comercios actuales depende tanto de la experiencia en el punto de venta como de la rapidez al pagar. 
+- **Diferencia entre canal físico (In-store) y digital (Online):** Al comprar en persona, ver los productos y tenerlos disponibles al instante motiva a los clientes a llevarse cosas extra que no planeaban, además de aprovechar el descuento. Por otro lado, comprar por internet hace muy fácil comparar precios al instante y sin esfuerzo. Esto vuelve a los clientes más exigentes y enfocados solo en buscar ofertas, lo que puede reducir la compra de productos adicionales si la página no les muestra buenas sugerencias. 
+- **El impacto de la facilidad de pago en la decisión de compra:** El medio elegido para pagar influye en nuestra percepción del gasto. Los pagos electrónicos y las tarjetas de crédito retrasan la sensación de estar perdiendo dinero en efectivo, lo que reduce la resistencia del cliente al momento de comprar. Al no sentir el golpe inmediato en el bolsillo y aprovechar un buen descuento, es mucho más probable que el cliente agregue más productos a su compra que si tuviera que pagar en efectivo al momento\
+
+
+\chapter{Marco Metódico}
+La presente investigación es de tipo descriptivo y cuantitativo, con un diseño no experimental y de corte transversal. Se busca caracterizar y describir el comportamiento de las ventas minoristas, particularmente el efecto de la aplicación de descuentos sobre el monto total gastado y la cantidad de productos adquiridos, sin manipular variables. Se adopta un enfoque cuantitativo, ya que se trabaja con una base de datos numérica y categórica que permite el uso de técnicas de estadística descriptiva para resumir, organizar y presentar la información de manera objetiva.
+ 
+\section{Bases metódicas utilizadas en el trabajo de investigación}
+
+Se utiliza una base de datos secundaria correspondiente a las transacciones de un local minorista, que contiene 12.575 registros de ventas realizadas tanto en el canal Online como en el canal In-store, durante el periodo 2022-2025. La base incluye variables relacionadas con la identificación de la transacción, categoría del producto, precio unitario, cantidad, monto total, método de pago, ubicación y aplicación de descuento.\
+
+
+\subsection{Las variables se clasifican de la siguiente manera:}
+
+-Variables cuantitativas:
+
+Continuas: Price Per Unit, Total Spent
+Discretas: Quantity
+
+-Variables cualitativas (categóricas):
+Category, Item, Payment Method, Location, Discount Applied
+
+La variable principal de análisis es Discount Applied (aplicación de descuento), la cual se estudia en relación con el monto total gastado (Total Spent) y la cantidad comprada (Quantity).\
+
+\subsection{Técnicas de análisis de datos}
+
+-Tablas de frecuencias y porcentajes
+-Medidas de tendencia central (media y mediana)
+-Medidas de dispersión (desviación estándar)
+-Tablas de contingencia
+-Representaciones gráficas: gráficos de barras y diagramas de caja (boxplots)\
+
+\subsubsection{Software utilizado}
+
+El procesamiento, limpieza, análisis y generación de visualizaciones se realizó utilizando el lenguaje de programación R a través del entorno RStudio, mediante un documento dinámico en R Markdown, lo que garantiza la reproducibilidad del estudio. Se emplearon principalmente los paquetes tidyverse, knitr y kableExtra.\
+
+\subsection{Procedimiento}
+
+1.Importación y revisión de la base de datos.
+2.Limpieza y tratamiento de valores faltantes (imputación por mediana según categoría y recodificación de valores nulos en variables categóricas).
+3.Análisis descriptivo univariado de la variable Discount Applied.
+4.Análisis comparativo de Total Spent y Quantity según la aplicación de descuento.
+5.Análisis cruzado de los descuentos según categoría de producto, canal de venta (Online / In-store) y método de pago.
+6.Generación de tablas y gráficos interpretativos.
+7.Elaboración de conclusiones a partir de los hallazgos descriptivos.\
+
+\chapter{Análisis de Resultados}
+
+
+```{r}
+# Tabla de frecuencias y porcentajes de discount
+
+tabla_discount <- df %>%
+  count(discount)
+
+tabla_discount <- tabla_discount %>%
+  mutate(Porcentaje = round(n / sum(n) * 100, 1))
+
+tabla_discount <- tabla_discount %>%
+  rename(
+    Descuento = discount,
+    Frecuencia = n
+  )
+
+# Mostrar tabla
+tabla_discount %>%
+  kable(
+    caption = "Distribucion de la variable Discount Applied",
+    align = "c",
+    col.names = c("Descuento", "Frecuencia", "Porcentaje (%)")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center"
+  )
+```
+
+
+
+```{r}
+# Gráfico de discount
+ggplot(df, aes(x = discount, fill = discount)) +
+  geom_bar(width = 0.65, color = "black", alpha = 0.9) +
+  geom_text(
+    stat = "count",
+    aes(label = paste0(after_stat(count), "\n(", 
+                       round(after_stat(count)/sum(after_stat(count))*100, 1), "%)")),
+    vjust = -0.3,
+    size = 4.2,
+    fontface = "bold"
+  ) +
+  scale_fill_manual(
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828", "Desconocido" = "#757575")
+  ) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +  # espacio arriba para las etiquetas
+  labs(
+    title = "Distribución de transacciones según aplicación de descuento",
+    subtitle = "Los tres grupos son muy similares en tamaño",
+    x = "Descuento aplicado",
+    y = "Número de transacciones",
+    fill = "Descuento"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 15),
+    plot.subtitle = element_text(hjust = 0.5, color = "gray40"),
+    legend.position = "none"
+  )
+```
+
+```{r}
+# 1. Tabla de medidas resumen
+resumen_descuento <- df %>%
+  group_by(discount) %>%
+  summarise(
+    n = n(),
+    # Total Spent
+    Media_Total = mean(total_spent, na.rm = TRUE),
+    Mediana_Total = median(total_spent, na.rm = TRUE),
+    Desv_Total = sd(total_spent, na.rm = TRUE),
+    # Quantity
+    Media_Cantidad = mean(quantity, na.rm = TRUE),
+    Mediana_Cantidad = median(quantity, na.rm = TRUE),
+    Desv_Cantidad = sd(quantity, na.rm = TRUE)
+  ) %>%
+  mutate(
+    across(where(is.numeric) & !c(n), ~ round(., 2))
+  )
+
+# Mostrar tabla bonita
+resumen_descuento %>%
+  kable(
+    caption = "Medidas de resumen de Total Spent y Quantity según Descuento",
+    col.names = c("Descuento", "N", "Media Total", "Mediana Total", "Desv. Total",
+                  "Media Cantidad", "Mediana Cantidad", "Desv. Cantidad"),
+    align = "c"
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center",
+    font_size = 12
+  )
+
+```
+
+```{r}
+# 2. Boxplot de Total Spent según descuento
+ggplot(df, aes(x = discount, y = total_spent, fill = discount)) +
+  geom_boxplot(alpha = 0.85, outlier.size = 0.8) +
+  scale_fill_manual(
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828", "Desconocido" = "#757575")
+  ) +
+  labs(
+    title = "Distribución del monto total gastado según descuento",
+    x = "Descuento aplicado",
+    y = "Total Spent",
+    fill = "Descuento"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    legend.position = "none"
+  )
+```
+
+```{r}
+# 3. Boxplot de Quantity según descuento
+ggplot(df, aes(x = discount, y = quantity, fill = discount)) +
+  geom_boxplot(alpha = 0.85, outlier.size = 0.8) +
+  scale_fill_manual(
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828", "Desconocido" = "#757575")
+  ) +
+  labs(
+    title = "Distribución de la cantidad comprada según descuento",
+    x = "Descuento aplicado",
+    y = "Quantity",
+    fill = "Descuento"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    legend.position = "none"
+  )
+```
+
+
+```{r}
+# DESCUENTOS SEGÚN CATEGORÍA DE PRODUCTO
+#Tabla de frecuencias: Descuento por Categoría
+
+df_desc <- df %>%
+  filter(discount %in% c("TRUE", "FALSE"))
+
+tabla_cat_discount2 <- df_desc %>%
+  count(category, discount) %>%
+  group_by(category) %>%
+  mutate(Porcentaje = round(n / sum(n) * 100, 1)) %>%
+  ungroup()
+
+tabla_cat_discount2 %>%
+  kable(
+    caption = "Distribucion de descuentos segun categoria (solo TRUE y FALSE)",
+    align = "c",
+    col.names = c("Categoria", "Descuento", "Frecuencia", "Porcentaje (%)")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center",
+    font_size = 11
+  )
+```
+
+
+
+```{r}
+# 2. Gráfico de barras agrupadas (porcentaje de descuentos por categoría)
+df_desc %>%
+  count(category, discount) %>%
+  group_by(category) %>%
+  mutate(Porcentaje = n / sum(n) * 100) %>%
+  ggplot(aes(x = category, y = Porcentaje, fill = discount)) +
+  geom_col(position = "dodge", width = 0.7, color = "black", alpha = 0.9) +
+  scale_fill_manual(
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828")
+  ) +
+  labs(
+    title = "Porcentaje de transacciones con y sin descuento segun categoria",
+    subtitle = "Se excluyeron los valores Desconocido",
+    x = "Categoria",
+    y = "Porcentaje (%)",
+    fill = "Descuento"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+    plot.subtitle = element_text(hjust = 0.5, color = "gray40"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "top"
+  )
+```
+
+```{r}
+# Filtramos solo TRUE y FALSE
+df_desc <- df %>%
+  filter(discount %in% c("TRUE", "FALSE"))
+
+# 1. Tabla
+tabla_loc_discount <- df_desc %>%
+  count(location, discount) %>%
+  group_by(location) %>%
+  mutate(Porcentaje = round(n / sum(n) * 100, 1)) %>%
+  ungroup()
+
+tabla_loc_discount %>%
+  kable(
+    caption = "Distribucion de descuentos segun canal de venta (Online vs In-store)",
+    align = "c",
+    col.names = c("Location", "Descuento", "Frecuencia", "Porcentaje (%)")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center"
+  )
+```
+
+```{r}
+df_desc %>%
+  count(location, discount) %>%
+  group_by(location) %>%
+  mutate(Porcentaje = n / sum(n) * 100) %>%
+  ggplot(aes(x = location, y = Porcentaje, fill = discount)) +
+  geom_col(position = "dodge", width = 0.6, color = "black", alpha = 0.9) +
+  geom_text(
+    aes(label = paste0(round(Porcentaje,1), "%")),
+    position = position_dodge(width = 0.6),
+    vjust = -0.4,
+    size = 4
+  ) +
+  scale_fill_manual(
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828")
+  ) +
+  labs(
+    title = "Porcentaje de transacciones con y sin descuento segun canal",
+    subtitle = "Online vs In-store (sin valores Desconocido)",
+    x = "Canal de venta",
+    y = "Porcentaje (%)",
+    fill = "Descuento"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5, color = "gray40"),
+    legend.position = "top"
+  )
+```
+
+```{r}
+
+# Filtramos solo TRUE y FALSE
+df_desc <- df %>%
+  filter(discount %in% c("TRUE", "FALSE"))
+
+# Tabla
+tabla_pago_discount <- df_desc %>%
+  count(payment_method, discount) %>%
+  group_by(payment_method) %>%
+  mutate(Porcentaje = round(n / sum(n) * 100, 1)) %>%
+  ungroup()
+
+tabla_pago_discount %>%
+  kable(
+    caption = "Distribucion de descuentos segun metodo de pago",
+    align = "c",
+    col.names = c("Metodo de Pago", "Descuento", "Frecuencia", "Porcentaje (%)")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center",
+    font_size = 11
+  )
+```
+
+```{r}
+# Gráfico
+df_desc %>%
+  count(payment_method, discount) %>%
+  group_by(payment_method) %>%
+  mutate(Porcentaje = n / sum(n) * 100) %>%
+  ggplot(aes(x = payment_method, y = Porcentaje, fill = discount)) +
+  geom_col(position = "dodge", width = 0.7, color = "black", alpha = 0.9) +
+  geom_text(
+    aes(label = paste0(round(Porcentaje,1), "%")),
+    position = position_dodge(width = 0.7),
+    vjust = -0.4,
+    size = 3.8
+  ) +
+  scale_fill_manual(
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828")
+  ) +
+  labs(
+    title = "Porcentaje de transacciones con y sin descuento segun metodo de pago",
+    x = "Metodo de Pago",
+    y = "Porcentaje (%)",
+    fill = "Descuento"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+    plot.subtitle = element_text(hjust = 0.5, color = "gray40"),
+    axis.text.x = element_text(angle = 30, hjust = 1),
+    legend.position = "top"
+  )
+```
+
+
+```{r}
+df_desc <- df %>%
+  filter(discount %in% c("TRUE", "FALSE"))
+
+# Tabla de media de Total Spent
+tabla_ticket_pago <- df_desc %>%
+  group_by(payment_method, discount) %>%
+  summarise(
+    N = n(),
+    Media_Total_Spent = round(mean(total_spent, na.rm = TRUE), 2),
+    Mediana_Total_Spent = round(median(total_spent, na.rm = TRUE), 2),
+    .groups = "drop"
+  )
+
+tabla_ticket_pago %>%
+  kable(
+    caption = "Ticket promedio (Total Spent) segun metodo de pago y descuento",
+    align = "c",
+    col.names = c("Metodo de Pago", "Descuento", "N", "Media", "Mediana")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center"
+  )
+```
+
+
+```{r}
+# Gráfico de barras del ticket promedio
+ggplot(tabla_ticket_pago, aes(x = payment_method, y = Media_Total_Spent, fill = discount)) +
+  geom_col(position = "dodge", width = 0.7, color = "black", alpha = 0.9) +
+  geom_text(
+    aes(label = Media_Total_Spent),
+    position = position_dodge(width = 0.7),
+    vjust = -0.4,
+    size = 3.7
+  ) +
+  scale_fill_manual(
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828")
+  ) +
+  labs(
+    title = "Ticket promedio segun metodo de pago y aplicacion de descuento",
+    x = "Metodo de Pago",
+    y = "Media de Total Spent",
+    fill = "Descuento"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    axis.text.x = element_text(angle = 30, hjust = 1),
+    legend.position = "top"
+  )
+```
+
+
+
+
+{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.}
+
+\section{Presentación de resultados 1}
+
+Descripción\
+
+\section{Presentación de resultados 2}
+
+Descripción\
+
+\section{Presentación de resultados n}
+
+Descripción\
+
+\chapter{Conclusiones y Recomendaciones}
+
+\textbf{1.-} Conclusion 1 del trabajo de investigación.\
+
+\textbf{Recomendación} 
+Recomendación 1 del trabajo de investigación.\
+
+\textbf{2.-} Conclusion 2 del trabajo de investigación.\
+
+\textbf{Recomendación} 
+Recomendación 2 del trabajo de investigación.\
+
+\textbf{n.-} Conclusion n del trabajo de investigación.\
+
+\textbf{Recomendación} Recomendación n del trabajo de investigación.\
+
+\appendix
+\renewcommand{\thechapter}{\Alph{chapter}}
+
+\chapter{Anexo A}
+
+\chapter{Anexo B}
+
+\chapter{Anexo C}
+

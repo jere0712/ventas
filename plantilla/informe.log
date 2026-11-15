@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.7)  7 NOV 2026 21:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.14)  15 NOV 2026 01:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -208,7 +208,7 @@ Package: eucal 2009/06/22 v3.00 Euler Script fonts
 LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
 (Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
 ) (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2026/10/29 v26.15 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+Package: babel 2026/11/10 v26.16 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
 \babel@savecnt=\count312
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2100.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2102.
@@ -224,7 +224,7 @@ LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) o
 \bbl@dirlevel=\count313
 (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex)
 Package babel Info: Importing font and identification data for 'spanish'
-(babel)             from babel-es.ini. Reported on input line 4478.
+(babel)             from babel-es.ini. Reported on input line 4485.
 (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks29
@@ -241,11 +241,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks31
 \@floatcapt=\box60
 ) (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2026-05-17 v1.3f Standard LaTeX Color (DPC)
+Package: color 
 (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: pdftex.def on input line 149.
+Package color Info: Driver file: pdftex.def on input line 148.
 (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ) (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/footmisc/footmisc.sty
@@ -336,8 +336,8 @@ Package: multicol 2026/06/26 v2.0b multicolumn formatting (FMi)
 \mc@col@check@num=\count327
 \g__mc_curr_col_int=\count328
 ) (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tocbibind/tocbibind.sty
-Package: tocbibind 2026/10/01 v1.5m extra ToC listings
-Package tocbibind Info: The document has chapter divisions on input line 50.
+Package: tocbibind 2026/10/31 v1.5n extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 51.
 
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
@@ -367,7 +367,7 @@ Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 ) (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package: pdftexcmds 2026-10-28 v0.34 Utility functions of pdfTeX for LuaTeX (HO)
 (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
@@ -696,26 +696,425 @@ LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `listings' support loaded on input line 3131.
 ) (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/firstaid/latex-firstaid-pkg-cleveref.ltx
 ==> First Aid for cleveref.sty applied!
+) (./Latex/Macros/MacroFile1.tex) (./informe.aux
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 8.
 )
+\openout1 = `informe.aux'.
 
-! LaTeX Error: Missing \begin{document}.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+\c@lstlisting=\count376
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: subfigure package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package backref Info: ** backref set up for natbib ** on input line 74.
+Package hyperref Info: Link coloring ON on input line 74.
+(./informe.out) (./informe.out)
+\@outlinefile=\write3
+\openout3 = `informe.out'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.28 T
-      ICO 1: Usar \input para macros en el preC!mbulo ---
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Package babel Info: Main language set to 'spanish'.
+<Latex/Classes/Escudos/ucvlogo.jpg, id=124, 676.02562pt x 668.4975pt>
+File: Latex/Classes/Escudos/ucvlogo.jpg Graphic file (type jpg)
+<use Latex/Classes/Escudos/ucvlogo.jpg>
+Package pdftex.def Info: Latex/Classes/Escudos/ucvlogo.jpg  used on input line 76.
+(pdftex.def)             Requested size: 86.31848pt x 85.35826pt.
 
- 
+Overfull \hbox (0.96022pt too wide) in paragraph at lines 76--76
+ [] 
+ []
+
+<Latex/Classes/Escudos/faces.png, id=125, 346.29375pt x 200.75pt>
+File: Latex/Classes/Escudos/faces.png Graphic file (type png)
+<use Latex/Classes/Escudos/faces.png>
+Package pdftex.def Info: Latex/Classes/Escudos/faces.png  used on input line 76.
+(pdftex.def)             Requested size: 127.61412pt x 73.97733pt.
+
+Overfull \hbox (42.25586pt too wide) in paragraph at lines 76--76
+ [][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 76.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 76.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Overfull \vbox (267.69385pt too high) detected at line 76
+ []
+
+
+Overfull \vbox (231.49484pt too high) detected at line 76
+ []
+
+[1
+
+{c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Latex/Classes/Escudos/ucvlogo.jpg> <./Latex/Classes/Escudos/faces.png>] (./informe.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 2.
+
+
+Package spanish Warning: Replacing `OT1/cmr/bx/sc' by 
+(spanish)                faked small caps on input line 2.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.28 ...lusiones y Recomendaciones}{17}{chapter.5}
+                                                  % [1
+
+
+])
+\tf@toc=\write4
+\openout4 = `informe.toc'.
+
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 95.
+[2] [3
+
+
+
+] [1
+
+
+
+]
+Cap\'{\i }tulo 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--167
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--184
+
+ []
+
+[2
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 204--209
+
+ []
+
+LaTeX Info: Redefining \. on input line 209.
+LaTeX Info: Redefining \% on input line 209.
+[3]
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
+[4]
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
+[5]
+Cap\'{\i }tulo 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--278
+
+ []
+
+[6
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 294--299
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--319
+
+ []
+
+LaTeX Info: Redefining \. on input line 320.
+LaTeX Info: Redefining \% on input line 320.
+[7]
+Cap\'{\i }tulo 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--340
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 350--353
+
+ []
+
+
+Overfull \hbox (16.43217pt too wide) in paragraph at lines 356--360
+\OT1/cmr/m/n/10.95 na) -Medidas de dis-per-si^^Son (des-via-ci^^Son est^^Sandar) -Tablas de con-tin-gen-cia -Representaciones
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--360
+
+ []
+
+[8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 363--368
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--380
+
+ []
+
+LaTeX Info: Redefining \. on input line 381.
+LaTeX Info: Redefining \% on input line 381.
+[9]
+Cap\'{\i }tulo 4.
+<informe_files/figure-latex/unnamed-chunk-15-1.pdf, id=223, 469.755pt x 325.215pt>
+File: informe_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-15-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-15-1.pdf  used on input line 394.
+(pdftex.def)             Requested size: 371.30594pt x 257.05597pt.
+
+Overfull \hbox (214.14761pt too wide) in alignment at lines 398--407
+ [] [] [] [] [] [] [] [] 
+ []
+
+[10
+
+ <./informe_files/figure-latex/unnamed-chunk-15-1.pdf>]
+<informe_files/figure-latex/unnamed-chunk-17-1.pdf, id=238, 469.755pt x 325.215pt>
+File: informe_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-17-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-17-1.pdf  used on input line 410.
+(pdftex.def)             Requested size: 371.30594pt x 257.05597pt.
+<informe_files/figure-latex/unnamed-chunk-18-1.pdf, id=239, 469.755pt x 325.215pt>
+File: informe_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-18-1.pdf  used on input line 412.
+(pdftex.def)             Requested size: 371.30594pt x 257.05597pt.
+[11 <./informe_files/figure-latex/unnamed-chunk-17-1.pdf>]
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 419.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 419.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 419.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 419.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 419.
+
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 419.
+
+[12 <./informe_files/figure-latex/unnamed-chunk-18-1.pdf>]
+<informe_files/figure-latex/unnamed-chunk-20-1.pdf, id=268, 469.755pt x 325.215pt>
+File: informe_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-20-1.pdf  used on input line 444.
+(pdftex.def)             Requested size: 371.30594pt x 257.05597pt.
+<informe_files/figure-latex/unnamed-chunk-22-1.pdf, id=269, 469.755pt x 325.215pt>
+File: informe_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-22-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-22-1.pdf  used on input line 458.
+(pdftex.def)             Requested size: 371.30594pt x 257.05597pt.
+[13 <./informe_files/figure-latex/unnamed-chunk-20-1.pdf>]
+<informe_files/figure-latex/unnamed-chunk-24-1.pdf, id=285, 469.755pt x 325.215pt>
+File: informe_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-24-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-24-1.pdf  used on input line 478.
+(pdftex.def)             Requested size: 371.30594pt x 257.05597pt.
+[14 <./informe_files/figure-latex/unnamed-chunk-22-1.pdf>]
+<informe_files/figure-latex/unnamed-chunk-26-1.pdf, id=300, 469.755pt x 325.215pt>
+File: informe_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-26-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-26-1.pdf  used on input line 495.
+(pdftex.def)             Requested size: 371.30594pt x 257.05597pt.
+[15 <./informe_files/figure-latex/unnamed-chunk-24-1.pdf>]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 497.
+(c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 497.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 500.
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
+
+ []
+
+LaTeX Info: Redefining \. on input line 514.
+LaTeX Info: Redefining \% on input line 514.
+[16 <./informe_files/figure-latex/unnamed-chunk-26-1.pdf>]
+Cap\'{\i }tulo 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 516--517
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 522--523
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 524--525
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+[17
+
+]
+Ap\'{e}ndice A.
+[18
+
+]
+Ap\'{e}ndice B.
+[19
+
+]
+Ap\'{e}ndice C.
+No file informe.bbl.
+[20
+
+] (./informe.aux
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
+)
+ ***********
+LaTeX2e <2026-11-01>
+L3 programming layer <2026-09-09>
+ ***********
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `informe.out' has not changed.
+(rerunfilecheck)             Checksum: EBA54B44E32262A82CB7BE0A0E8D2929;6096.
+ ) 
 Here is how much of TeX's memory you used:
- 18835 strings out of 468939
- 310396 string characters out of 5451728
- 830716 words of memory out of 5000000
- 47782 multiletter control sequences out of 15000+600000
- 628789 words of font info for 41 fonts, out of 8000000 for 9000
+ 20984 strings out of 468939
+ 361419 string characters out of 5451727
+ 843766 words of memory out of 5000000
+ 49782 multiletter control sequences out of 15000+600000
+ 639475 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 104i,0n,107p,299b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 104i,12n,107p,508b,843s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on informe.pdf (24 pages, 442281 bytes).
+PDF statistics:
+ 398 PDF objects out of 1000 (max. 8388607)
+ 335 compressed objects within 4 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 286 words of extra memory for PDF output out of 10000 (max. 10000000)
+
