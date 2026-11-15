@@ -26,7 +26,7 @@ bibliography: bibliografia.bib
 degree: Computación I
 abstract: "El presente trabajo analiza el comportamiento de las transacciones comerciales\ny
   el rendimiento de ventas en el sector retail mediante el procesamiento estadístico\nen
-  R y RStudio. A partir de datos transaccionales de 2023–2024, se examinan variables\ncomo
+  R y RStudio. A partir de datos transaccionales de 2022–2025, se examinan variables\ncomo
   precios, cantidades, montos, categorías, métodos de pago y canales de venta\n(Online
   e In-store). Metodológicamente, se implementa un flujo reproducible en RMarkdown\npara
   la limpieza, análisis descriptivo y visualización gráfica. Los hallazgos permiten\nidentificar
