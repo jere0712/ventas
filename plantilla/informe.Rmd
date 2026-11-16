@@ -360,7 +360,7 @@ El procesamiento, limpieza, análisis y generación de visualizaciones se realiz
 
 \chapter{Análisis de Resultados}
 
-{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.
+\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.
 
 Esta sección presenta el análisis estadístico descriptivo orientado a evaluar el impacto de la aplicación de descuentos (discount) sobre el comportamiento de compra de los clientes, analizando variables clave como el monto total gastado (total_spent) y la cantidad de unidades adquiridas (quantity).
 

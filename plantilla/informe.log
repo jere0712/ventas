@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.15)  15 NOV 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.15)  15 NOV 2026 20:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -940,12 +940,10 @@ LaTeX Info: Redefining \. on input line 395.
 LaTeX Info: Redefining \% on input line 395.
 [8]
 Cap\'{\i }tulo 4.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 397.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 414.
 (c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 397.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 414.
 
@@ -1145,15 +1143,15 @@ Package rerunfilecheck Info: File `informe.out' has not changed.
 (rerunfilecheck)             Checksum: AC20541BC400EAC739A9B5DD06AC8E51;7795.
  ) 
 Here is how much of TeX's memory you used:
- 21009 strings out of 468939
- 361763 string characters out of 5451727
+ 21007 strings out of 468939
+ 361729 string characters out of 5451727
  844766 words of memory out of 5000000
- 49799 multiletter control sequences out of 15000+600000
+ 49797 multiletter control sequences out of 15000+600000
  641717 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  104i,12n,107p,508b,821s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/jerem/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (26 pages, 462090 bytes).
+Output written on informe.pdf (26 pages, 461869 bytes).
 PDF statistics:
  433 PDF objects out of 1000 (max. 8388607)
  366 compressed objects within 4 object streams
