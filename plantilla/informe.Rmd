@@ -687,7 +687,7 @@ df_desc %>%
     size = 3.8
   ) +
   scale_fill_manual(
-    values = c("TRUE" = "#2E7D32", "FALSE" = "#C62828")
+    values = c("TRUE" = "#2E7D32", "FALSE" = "#FFFDD0")
   ) +
   labs(
     title = "Porcentaje de transacciones con y sin descuento segun metodo de pago",

@@ -86,7 +86,8 @@ with pestana1:
         ax.patch.set_alpha(0.0)
         
         if total_transacciones > 0:
-            sns.boxplot(data=df_filtrado, x="Discount Applied", y="Total Spent", palette=["#C62828", "#2E7D32"], ax=ax)
+            sns.boxplot(data=df_filtrado, x="Discount Applied", y="Total Spent", palette=["#C62828", "#2E7D32"],
+                        flierprops={"markerfacecolor": "cyan", "markeredgecolor": "white", "markersize": 5}, ax=ax)
         
         ax.set_title("Distribución del Gasto Total", color="white")
         ax.tick_params(colors='white')
