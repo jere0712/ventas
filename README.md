@@ -39,4 +39,7 @@ El informe y el repositorio se estructuran de la siguiente manera:
 ---
 
 ## 👥 Equipo de Trabajo y Reproducibilidad
-El proyecto ha sido desarrollado de forma colaborativa mediante control de versiones en **GitHub** y procesamiento en entorno **RMarkdown** (`informe.Rmd`), garantizando la trazabilidad, transparencia y actualización periódica de los resultados gerenciales.
+El proyecto ha sido desarrollado de forma colaborativa mediante control de versiones en **GitHub** y procesamiento en entorno **RMarkdown** (`informe.Rmd`) tambien un dashboard con ayuda de el lenguaje python, garantizando la trazabilidad, transparencia y actualización periódica de los resultados gerenciales.
+
+---
+*Dashboard con streamlit* (https://ventas-jere.streamlit.app/)
