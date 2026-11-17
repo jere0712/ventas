@@ -19,7 +19,7 @@ def cargar_datos():
 
 df = cargar_datos()
 
-# --- FILTROS LATERALES ---
+# FILTROS LATERALES 
 st.sidebar.header("Filtros de Visualización")
 categoria_seleccionada = st.sidebar.multiselect(
     "Selecciona la Categoría:",
@@ -27,10 +27,30 @@ categoria_seleccionada = st.sidebar.multiselect(
     default=df["Category"].unique()
 )
 
+# ESPACIADOR (para empujar el cuadro hacia abajo) 
+st.sidebar.markdown("<br>" * 10, unsafe_allow_html=True)
+
+# caja de creditos lateral 
+st.sidebar.markdown(
+    """
+    <div style="
+        background-color: #111b27;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #1f2c3d;
+        color: #ffffff;
+    ">
+        <p style="font-weight: bold; margin-bottom: 5px; font-size: 14px; color: #60a5fa;">💡 Análisis hecho por:</p>
+        <p style="margin: 0; font-size: 13px; color: #e2e8f0;">Jeremías Mogollón</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 #  Filtrar dataframe según selección 
 df_filtrado = df[df["Category"].isin(categoria_seleccionada)]
 
-# --- CREAR LAS PESTAÑAS ---
+#  CREAR LAS PESTAÑAS 
 pestana1, pestana2 = st.tabs(["General", " Descuentos"])
 
 # PESTAÑA 1: General
@@ -56,7 +76,7 @@ with pestana1:
 
     st.divider()
 
-    # --- GRÁFICOS ---
+    # GRÁFICOS 
     col_graf1, col_graf2 = st.columns(2)
 
     with col_graf1:
@@ -98,7 +118,7 @@ with pestana2:
     st.subheader("Proporción de Descuentos por Categoría")
     st.markdown("Este gráfico muestra el porcentaje relativo de transacciones con y sin descuento dentro de cada categoría.")
     
-    fig_desc, ax_desc = plt.subplots(figsize=(8, 5))
+    fig_desc, ax_desc = plt.subplots(figsize=(6, 3.5))
     fig_desc.patch.set_alpha(0.0)
     ax_desc.patch.set_alpha(0.0)
     
@@ -117,4 +137,4 @@ with pestana2:
         plt.setp(leyenda.get_texts(), color='white')
         plt.setp(leyenda.get_title(), color='white')
     
-    st.pyplot(fig_desc, use_container_width=True)
+    st.pyplot(fig_desc, use_container_width=False)
