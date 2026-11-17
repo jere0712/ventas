@@ -103,7 +103,7 @@ with pestana1:
         if total_transacciones > 0:
             ventas_cat = df_filtrado.groupby("Category")["Total Spent"].sum().reset_index()
             sns.barplot(data=ventas_cat, x="Category", y="Total Spent", palette="Blues_d", ax=ax)
-            plt.xticks(rotation=45)
+            plt.xticks(rotation=45, ha="right")
             
         ax.set_title("Ingresos Totales por Categoría", color="white")
         ax.tick_params(colors='white')
@@ -130,7 +130,7 @@ with pestana2:
         ax_desc.set_title("Distribución Porcentual de Descuentos", color="white")
         ax_desc.set_ylabel("Porcentaje (%)", color="white")
         ax_desc.set_xlabel("Categoría", color="white")
-        plt.xticks(rotation=45)
+        plt.xticks(rotation=45, ha="right")
         
         ax_desc.tick_params(colors='white')
         leyenda = ax_desc.legend(title="Descuento", facecolor="#1e1e1e", edgecolor="none")
